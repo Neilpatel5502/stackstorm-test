@@ -1,0 +1,15 @@
+---
+ref: test_st2
+name: test_stackstorm
+description: Testing pack for stackstorm
+keywords:
+  - example
+  - test
+version: 0.1.0
+python_versions:
+  - "2"
+  - "3"
+dependencies:
+  - core
+author: Neel Patel
+email: Neel.patel@DigitalXC.com

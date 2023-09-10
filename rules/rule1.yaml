@@ -1,0 +1,11 @@
+---
+name: on_hello_event1
+pack: test_st2
+description: Sample rule firing on test_st2.event1
+enabled: true
+trigger:
+  type: test_st2.event1
+action:
+  ref: test_st2.greet
+  parameters:
+    greeting: Hola

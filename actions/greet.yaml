@@ -1,0 +1,13 @@
+---
+name: greet
+pack: test_st2
+runner_type: "local-shell-script"
+description: Greet Stackstorm
+enabled: true
+entry_point: greet.sh
+parameters:
+  greeting:
+    type: string
+    description: Greeting you want to say to stackstorm (i.e. Hello, Hi, Hey, Yo etc.)
+    required: true
+    position: 1
