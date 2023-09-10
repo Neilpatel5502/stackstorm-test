@@ -1,0 +1,16 @@
+---
+aws_region_name:
+  description: "AWS region name"
+  type: "string"
+  secret: false
+  required: true
+aws_access_key_id:
+  description: "AWS Access key ID"
+  type: "string"
+  secret: false
+  required: true
+aws_secret_access_key:
+  description: "AWS Secret Access Key"
+  type: "string"
+  secret: true
+  required: true
