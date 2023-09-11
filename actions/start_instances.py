@@ -14,9 +14,7 @@ class StartEC2Instances(AWSBaseAction):
             aws_access_key_id = self.aws_access_key_id,
             aws_secret_access_key = self.aws_secret_access_key
         )
-        print("Hello")
         instances = instance_ids.split(",")
-        print(f"Instances: {instances}")
         response = ec2_client.start_instances(InstanceIds=instances)
         
         return response
