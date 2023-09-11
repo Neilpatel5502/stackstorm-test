@@ -27,6 +27,9 @@ class StoppedEC2Instances(AWSBaseAction):
 
         for reservation in response['Reservations']:
             for instance in reservation['Instances']:
-                instances.append(instance)
+                print(instance['InstanceId'])
+                instances.append({
+                    'id': instance['InstanceId']
+                })
 
         return instances
