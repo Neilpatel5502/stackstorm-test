@@ -14,4 +14,4 @@ tasks:
   start_instances:
     action: test_st2.start_instances
     input:
-      instance_ids: <% ctx(<% ctx().instances %> | map(attribute='InstanceId')) | join(',') %>
+      instance_ids: <% ctx().instances | map(attribute='InstanceId') | join(',') %>
