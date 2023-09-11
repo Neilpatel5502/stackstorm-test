@@ -1,0 +1,11 @@
+name: start_instances
+description: start stopped EC2 instances in AWS.
+enabled: true
+entry_point: start_instances.py
+pack: test_st2
+runner_type: python-script
+parameters:
+  instance_ids:
+    type: string
+    description: Comma-separated list of EC2 instance IDs to start
+    required: true

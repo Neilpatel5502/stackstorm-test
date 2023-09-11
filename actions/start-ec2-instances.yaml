@@ -1,0 +1,5 @@
+name: start-ec2-instances
+description: A workflow for getting stopped ec2 instances and start them automatically.
+runner_type: orquesta
+entry_point: workflows/start-ec2-instances.yaml
+enabled: true

@@ -1,0 +1,6 @@
+name: get_stopped_instances
+description: Get a list of stopped EC2 instances from aws
+enabled: true
+entry_point: get_stopped_instances.py
+pack: test_st2
+runner_type: python-script
