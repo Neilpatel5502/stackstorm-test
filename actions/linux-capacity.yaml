@@ -1,0 +1,5 @@
+name: linux-capacity
+description: A workflow for getting output from terminal commands.
+runner_type: orquesta
+entry_point: workflows/linux-capacity.yaml
+enabled: true

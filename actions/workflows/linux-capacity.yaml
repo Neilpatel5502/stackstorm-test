@@ -1,0 +1,32 @@
+version: 1.0
+
+desciption: Linux capacity related commands
+
+tasks:
+  date_task:
+    action: core.local
+    input:
+      cmd: "date"
+    publish:
+      - date_output: <% task(date_task).result.stdout %>
+    on-success:
+      - uname_task
+  
+  uname_task:
+    action: core.local
+    input:
+      cmd: "uname -a"
+    publish:
+      - uname_output: <%task(uname_task).result.stdout %>
+    on-success:
+      - clean_output
+
+  clean_output:
+    action: test_st2.clean_output
+    input:
+      args: "<% ctx(date_output) %> <% ctx(uname_output) %>"
+    on-success:
+      - succeed
+
+  succeed:
+    action: core.noop

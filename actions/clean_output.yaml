@@ -1,0 +1,10 @@
+name: clean_output
+pack: test_st2
+description: Run a python script with arguments
+enabled: true
+entry_point: clean_output.py
+runner_type: python
+parameters:
+  args:
+    type: string
+    description: Arguments to pass to the Python script
