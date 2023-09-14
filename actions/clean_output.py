@@ -1,10 +1,7 @@
 from st2common.runners.base_action import Action
 
 class MypythonAction(Action):
-    def run(self, *args):
-        output = list(args)
+    def run(self, args):
+        print(args)
 
-        for i in output:
-            print(i)
-
-        return 1
+        return args
