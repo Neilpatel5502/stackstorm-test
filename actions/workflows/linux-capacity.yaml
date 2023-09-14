@@ -21,7 +21,7 @@ tasks:
       - when: <% succeeded() %>
         publish:
           - uname_output: <% result().stdout %>
-        do: clean_task
+        do: clean_output
 
   clean_output:
     action: test_st2.clean_output
