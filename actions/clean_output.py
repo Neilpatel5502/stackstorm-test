@@ -13,7 +13,7 @@ class MyPythonAction(AWSBaseAction):
         uptime_out = output[2]
         load_average = output[3]
         process_id, cpu_user, cpu_percent, command = output[4].split(" ")
-        sar_cpu_free = output[5]
+        sar_cpu_free = float(output[5])
         sar_cpu_utilization = 100 - sar_cpu_free
         sar_mem_utilization = output[6]
         sar_swap_utilization = output[7]
