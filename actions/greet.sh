@@ -1,8 +1,18 @@
 #!/bin/bash
 
-date
-uname -a | awk '{print $2}'
-uptime | awk -F "up |, | users" '{print $2}'
+OUTPUT_FILE = "/opt/stackstorm/output.txt"
 
-top -b -n 1 -o %CPU | grep -E "load average:" | awk '{print $8, $9, $10, $11, $12}'
-top -b -n 1 -o %CPU | grep -E '^\s*[0-9]+' | head -n 1 | awk '{print $1, $2, $9, $12}'
+{
+    echo "date: $(date)" >> "$OUTPUT_FILE"
+    echo "uname: $(uname -a | awk '{print $2}')" >> "$OUTPUT_FILE"
+    echo "uptime: $(uptime | awk -F "up |, | users" '{print $2}')" >> "$OUTPUT_FILE"
+
+    top_output=$(top -b -n 1 -o %CPU)
+    echo "Load Average: $(echo "$top_output" | grep -E 'load average:' | awk '{print $10, $11, $12}')" >> "$OUTPUT_FILE"
+    echo "Process ID: $(echo "$top_output" | grep -E '^\s*[0-9]+' | head -n 1 | awk '{print $1}')" >> "$OUTPUT_FILE"
+    echo "User/Owner: $(echo "$top_output" | grep -E '^\s*[0-9]+' | head -n 1 | awk '{print $1}')" >> "$OUTPUT_FILE"
+    echo "CPU Utilization: $(echo "$top_output" | grep -E '^\s*[0-9]+' | head -n 1 | awk '{print $1}')" >> "$OUTPUT_FILE"
+    echo "Command/Application: $(echo "$top_output" | grep -E '^\s*[0-9]+' | head -n 1 | awk '{print $1}')" >> "$OUTPUT_FILE"
+} 2>&1
+
+exit 0
