@@ -17,9 +17,9 @@ class MyPythonAction(AWSBaseAction):
         # sar_cpu_utilization = 100 - sar_cpu_free
         sar_mem_utilization = output[6]
         sar_swap_utilization = output[7]
-        sar_sys_processes, sar_sys_threads, sys_load_1, sys_load_2, sys_load_3 = output[8].split(" ")
-        sar_sysload_avg_min = math.ceil(min(float(sys_load_1), float(sys_load_2), float(sys_load_3)))
-        sar_sysload_avg_max = math.floor(max(float(sys_load_1), float(sys_load_2), float(sys_load_3)))
+        # sar_sys_processes, sar_sys_threads, sys_load_1, sys_load_2, sys_load_3 = output[8].split(" ")
+        # sar_sysload_avg_min = math.ceil(min(float(sys_load_1), float(sys_load_2), float(sys_load_3)))
+        # sar_sysload_avg_max = math.floor(max(float(sys_load_1), float(sys_load_2), float(sys_load_3)))
 
         output = {
             "date": date_out,
@@ -34,8 +34,8 @@ class MyPythonAction(AWSBaseAction):
             "SAR CPU Utilization": f"test (Average)",
             "SAR MEM Utilization": f"{sar_mem_utilization} (Average)",
             "SAR SWAP Utilization": f"{sar_swap_utilization} (Average)",
-            "Processes in Running/Queue": sar_sys_processes,
-            "threads in Running/Queue": sar_sys_threads,
-            "System Load Average is in between": f"{sar_sysload_avg_min}~{sar_sysload_avg_max}",
+            "Processes in Running/Queue": "sar_sys_processes",
+            "threads in Running/Queue": "sar_sys_threads",
+            "System Load Average is in between": f"0~2",
         }
         return output
