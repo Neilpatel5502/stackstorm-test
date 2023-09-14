@@ -14,4 +14,4 @@ tasks:
   clean_output:
     action: test_st2.clean_output
     input:
-      args: "<% ctx(output) %>"
+      args: <% ctx().output %>
