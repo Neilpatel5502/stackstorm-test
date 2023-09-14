@@ -1,2 +1,10 @@
 #!/bin/bash
-echo "$1, Stackstorm!"
+
+date
+uname -a
+uptime
+
+free -h
+free -k
+
+top -o %MEM
