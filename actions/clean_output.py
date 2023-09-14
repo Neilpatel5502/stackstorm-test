@@ -6,8 +6,5 @@ __all__ = [
 
 class MyPythonAction(AWSBaseAction):
     def run(self, args):
-        
-        with open("/opt/stackstorm/output.txt", "w") as file:
-            file.write(f"{args}")
-
-        return args
+        output = args.split("\n")
+        return output
