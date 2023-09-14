@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OUTPUT_FILE = "/opt/stackstorm/output.txt"
+OUTPUT_FILE="/opt/stackstorm/output.txt"
 
 {
     echo "date: $(date)" >> "$OUTPUT_FILE"
