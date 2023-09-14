@@ -3,7 +3,7 @@ pack: test_st2
 description: Run a python script with arguments
 enabled: true
 entry_point: clean_output.py
-runner_type: python
+runner_type: python-script
 parameters:
   args:
     type: string
