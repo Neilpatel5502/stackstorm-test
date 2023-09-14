@@ -15,3 +15,10 @@ tasks:
     action: test_st2.clean_output
     input:
       args: <% ctx().output %>
+    next:
+      - when: <% succeeded() %>
+        publish:
+          - answer: <% result().result %>
+
+output:
+  - result: <% ctx().answer %>

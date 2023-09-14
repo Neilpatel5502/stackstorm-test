@@ -1,9 +1,13 @@
-from st2common.runners.base_action import Action
+from lib.actions import AWSBaseAction
 
-class MypythonAction(Action):
+__all__ = [
+    'MyPythonAction'
+]
+
+class MyPythonAction(AWSBaseAction):
     def run(self, args):
         
-        with open("output.txt", "w") as file:
+        with open("/opt/stackstorm/output.txt", "w") as file:
             file.write(f"{args}")
 
         return args
