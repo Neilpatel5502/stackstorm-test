@@ -3,7 +3,7 @@
 OUTPUT_FILE="/opt/stackstorm/output.txt"
 
 {
-    echo "date: $(date)" >> "$OUTPUT_FILE"
+    echo "date: $(sudo date)" >> "$OUTPUT_FILE"
     echo "uname: $(sudo uname -a | awk '{print $2}')" >> "$OUTPUT_FILE"
     echo "uptime: $(sudo uptime | awk -F "up |, | users" '{print $2}')" >> "$OUTPUT_FILE"
 
