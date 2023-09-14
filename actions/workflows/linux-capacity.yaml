@@ -1,6 +1,6 @@
 version: 1.0
 
-desciption: Linux capacity related commands
+description: Linux capacity related commands
 
 tasks:
   date_task:
