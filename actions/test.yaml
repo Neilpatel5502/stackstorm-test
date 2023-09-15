@@ -1,0 +1,7 @@
+---
+name: test
+pack: test_st2
+runner_type: "local-shell-script"
+description: test Stackstorm
+enabled: true
+entry_point: test.sh
