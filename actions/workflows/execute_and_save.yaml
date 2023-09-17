@@ -16,8 +16,9 @@ tasks:
     action: test_st2.execute_commands
     input:
       command: "{{ item }}"
-    on-success:
-      - save_output
+    next:
+      - when: <% succeeded() %>
+        do: save_output
 
   save_output:
     action: core.local
