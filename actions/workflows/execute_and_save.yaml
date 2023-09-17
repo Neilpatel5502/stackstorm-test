@@ -13,7 +13,7 @@ tasks:
   execute_commands:
     with:
       items: "{{ input.commands }}"
-    action: test_st2.execute_command
+    action: test_st2.execute_commands
     input:
       command: "{{ item }}"
     on-success:
