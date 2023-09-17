@@ -1,4 +1,3 @@
 #!/bin/bash
 
-pwd
-echo $PATH
+env
