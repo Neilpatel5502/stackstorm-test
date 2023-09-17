@@ -1,0 +1,25 @@
+version: '1.0'
+description: Execute Commands and Save Output Workflow
+
+input:
+  - commands:
+      type: array
+      description: List of commands to execute
+  - output_file:
+      type: string
+      description: File path to save the output
+
+tasks:
+  execute_commands:
+    with:
+      items: "{{ input.commands }}"
+    action: test_st2.execute_command
+    input:
+      command: "{{ item }}"
+    on-success:
+      - save_output
+
+  save_output:
+    action: core.local
+    input:
+      cmd: echo "{{ execute_commands.result }}" > "{{ input.output_file }}"

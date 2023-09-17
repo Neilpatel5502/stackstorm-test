@@ -1,0 +1,10 @@
+name: execute_commands
+pack: test_st2
+description: Run a python script with arguments
+enabled: true
+entry_point: execute_commands.py
+runner_type: python-script
+parameters:
+  command:
+    type: string
+    description: command to execute
