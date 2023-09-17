@@ -4,9 +4,11 @@ runner_type: orquesta
 entry_point: workflows/execute_and_save.yaml
 enabled: true
 parameters:
-  - commands:
-      type: array
-      description: List of commands to execute
-  - output_file:
-      type: string
-      description: File path to save the output
+-   name: commands
+    type: array
+    description: List of commands to execute
+    required: true
+  - name: output_file
+    type: string
+    description: File path to save the output
+    required: true
