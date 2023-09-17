@@ -17,4 +17,6 @@ tasks:
         do: save_output
 
   save_output:
-    action: core.local cmd=echo "{{ execute_commands.result }}" > "{{ input.output_file }}"
+    action: core.local
+    input:
+      cmd: echo "{{ execute_commands.result }}" > "{{ input.output_file }}"

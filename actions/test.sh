@@ -1,1 +1,1 @@
-/usr/bin/sar -u 5 5
+sar -u 5 5
