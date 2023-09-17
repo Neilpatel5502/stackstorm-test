@@ -1,14 +1,14 @@
 name: execute-and-save
 description: A workflow for getting output from terminal commands.
 runner_type: orquesta
-entry_point: workflows/execute_and_save.yaml
+entry_point: workflows/execute-and-save.yaml
 enabled: true
 parameters:
--   name: commands
+  commands:
     type: array
     description: List of commands to execute
     required: true
-  - name: output_file
+  output_file:
     type: string
     description: File path to save the output
     required: true

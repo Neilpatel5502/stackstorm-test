@@ -2,12 +2,8 @@ version: '1.0'
 description: Execute Commands and Save Output Workflow
 
 input:
-  - commands:
-      type: array
-      description: List of commands to execute
-  - output_file:
-      type: string
-      description: File path to save the output
+  - commands
+  - output_file
 
 tasks:
   execute_commands:
