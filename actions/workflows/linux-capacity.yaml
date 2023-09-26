@@ -25,6 +25,6 @@ tasks:
     next:
       - when: <% succeeded() %>
         publish:
-          - answer: <% result.result() %>
+          - answer: <% result().result %>
 output:
   - result: <% ctx().answer %>
