@@ -35,7 +35,7 @@ tasks:
     input:
       table: incident
       payload: <% ctx().payload %>
-      sysid: <% ctx().sys_id %>
+      sysid: <% ctx("sys_id") %>
     next:
       - when: <% succeeded() %>
         publish:

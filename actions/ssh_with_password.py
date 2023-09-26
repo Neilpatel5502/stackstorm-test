@@ -59,11 +59,12 @@ class SSHWithPasswordAction(Action):
             "work_notes": output_str,
             "state": "6",
         }
-        sys_id = incident.get("sys_id")
+        sys_id = incident["sys_id"]
+        print(sys_id)
 
         final_op = {
             "payload": payload,
-            "sys_id": str(type(sys_id))
+            "sys_id": sys_id
         }
 
         return final_op
