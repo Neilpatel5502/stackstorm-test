@@ -21,7 +21,7 @@ tasks:
     input:
       incident: <% item() %>
       username: ec2-user
-      password: <% st2kv(system.ec2-pass) %>
+      password: <% st2kv('system.ec2-pass') %>
     next:
       - when: <% succeeded() %>
         publish:
