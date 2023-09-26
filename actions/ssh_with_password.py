@@ -4,7 +4,7 @@ from st2common.runners.base_action import Action
 class SSHWithPasswordAction(Action):
     def execute_command(self, ssh, command):
         _, stdout, _ = ssh.exec_command(command)
-        output = stdout.read().decode('utf-8')
+        output = stdout.read().decode('utf-8').strip()
         return output
 
 
