@@ -25,7 +25,7 @@ tasks:
     next:
       - when: <% succeeded() %>
         publish:
-          - payload: <% result().result.payload %>
+          - payload: <% result().result %>
 
         do: update_incident
 
