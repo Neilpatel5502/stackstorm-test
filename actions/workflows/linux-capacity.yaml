@@ -11,7 +11,20 @@ tasks:
     next:
       - when: <% succeeded() %>
         publish:
-          - answer: <% result().result %>
-
+          - incidents: <% result().result %>
+        do: exec_commands_on_ec2
+  
+  exec_commands_on_ec2:
+    with:
+      items: <% ctx(incidents) %>
+    action: test_st2.ssh_with_password
+    input:
+      incident: <% item() %>
+      username: ec2-user
+      password: <% st2kv(system.ec2-pass) %>
+    next:
+      - when: <% succeeded() %>
+        publish:
+          - answer: <% result.result() %>
 output:
   - result: <% ctx().answer %>

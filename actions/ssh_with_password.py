@@ -1,5 +1,6 @@
 import paramiko
 import math
+import re
 from st2common.runners.base_action import Action
 
 class SSHWithPasswordAction(Action):
@@ -9,7 +10,11 @@ class SSHWithPasswordAction(Action):
         return output
 
 
-    def run(self, ec2_instance_ip, username, password):
+    def run(self, incident, username, password):
+        desc = incident.get("description")
+        match = re.search(r'host:\s*(\S+)', desc)
+        if match:
+            ec2_instance_ip = match.group(1)
         ssh = paramiko.SSHClient()
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         
@@ -40,17 +45,17 @@ class SSHWithPasswordAction(Action):
                 "User/Owner": cpu_user,
                 "CPU Utilization": cpu_percent,
                 "Command/Application": command,
-                "SAR Free/Idle": f"{sar_cpu_free} (Average)",
-                "SAR CPU Utilization": f"{sar_cpu_utilization} (Average)",
-                "SAR MEM Utilization": f"{sar_mem_utilization} (Average)",
-                "SAR SWAP Utilization": f"{sar_swap_utilization} (Average)",
-                "Processes in Running/Queue": sar_sys_processes,
-                "threads in Running/Queue": sar_sys_threads,
-                "System Load Average is in between": f"{sar_sysload_avg_min}~{sar_sysload_avg_max}",
+                # "SAR Free/Idle": f"{sar_cpu_free} (Average)",
+                # "SAR CPU Utilization": f"{sar_cpu_utilization} (Average)",
+                # "SAR MEM Utilization": f"{sar_mem_utilization} (Average)",
+                # "SAR SWAP Utilization": f"{sar_swap_utilization} (Average)",
+                # "Processes in Running/Queue": sar_sys_processes,
+                # "threads in Running/Queue": sar_sys_threads,
+                # "System Load Average is in between": f"{sar_sysload_avg_min}~{sar_sysload_avg_max}",
             }
 
-            return (True, output)
+            return output
         except Exception as e:
-            return (False, str(e))
+            return str(e)
         finally:
             ssh.close()
