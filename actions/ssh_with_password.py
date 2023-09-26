@@ -63,7 +63,7 @@ class SSHWithPasswordAction(Action):
 
         final_op = {
             "payload": payload,
-            "sys_id": sys_id[0]
+            "sys_id": str(sys_id)
         }
 
         return final_op
