@@ -45,13 +45,13 @@ class SSHWithPasswordAction(Action):
                 "User/Owner": cpu_user,
                 "CPU Utilization": cpu_percent,
                 "Command/Application": command,
-                # "SAR Free/Idle": f"{sar_cpu_free} (Average)",
-                # "SAR CPU Utilization": f"{sar_cpu_utilization} (Average)",
-                # "SAR MEM Utilization": f"{sar_mem_utilization} (Average)",
-                # "SAR SWAP Utilization": f"{sar_swap_utilization} (Average)",
-                # "Processes in Running/Queue": sar_sys_processes,
-                # "threads in Running/Queue": sar_sys_threads,
-                # "System Load Average is in between": f"{sar_sysload_avg_min}~{sar_sysload_avg_max}",
+                "SAR Free/Idle": f"{sar_cpu_free} (Average)",
+                "SAR CPU Utilization": f"{sar_cpu_utilization} (Average)",
+                "SAR MEM Utilization": f"{sar_mem_utilization} (Average)",
+                "SAR SWAP Utilization": f"{sar_swap_utilization} (Average)",
+                "Processes in Running/Queue": sar_sys_processes,
+                "threads in Running/Queue": sar_sys_threads,
+                "System Load Average is in between": f"{sar_sysload_avg_min}~{sar_sysload_avg_max}",
             }
 
             return output
