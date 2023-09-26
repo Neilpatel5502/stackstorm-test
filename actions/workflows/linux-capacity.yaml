@@ -24,9 +24,8 @@ tasks:
       password: <% st2kv('system.ec2-pass') %>
     next:
       - when: <% succeeded() %>
-        publish:
-          - payload: <% result().result.payload %>
-          - sys_id: <% result().result.sys_id %>
+        - publish: payload = <% result().result.payload %>
+        - punblish: sys_id = <% result().result.sys_id %>
 
         do: update_incident
 
