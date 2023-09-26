@@ -36,8 +36,9 @@ tasks:
       table: incident
       payload: <% ctx().payload %>
       sysid: <% ctx().sys_id %>
-    - when: <% succeeded() %>
-      publish:
-        - answer: <% result().result %>
+    next:
+      - when: <% succeeded() %>
+        publish:
+          - answer: <% result().result %>
 output:
   - result: <% ctx().answer %>
