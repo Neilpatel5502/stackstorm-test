@@ -25,16 +25,16 @@ tasks:
     next:
       - when: <% succeeded() %>
         publish:
-          - payload: <% result().result.payload[0] %>
-          - sysid: <% result().result.sysid[0] %>
+          - payload: <% result().result.payload %>
+          - sysid: <% result().result.sysid %>
         do: update_incident
 
   update_incident:
     action: servicenow.update
     input:
       table: incident
-      payload: <% ctx().payload %>
-      sysid: <% ctx().sysid %>
+      payload: <% ctx().payload[0] %>
+      sysid: <% ctx().sysid[0] %>
     next:
       - when: <% succeeded() %>
         publish:
