@@ -31,11 +31,13 @@ tasks:
         do: update_incident
 
   update_incident:
+    with:
+      items: <% ctx(sys_id) %>
     action: servicenow.update
     input:
       table: incident
       payload: <% ctx().payload %>
-      sysid: <% ctx("sys_id") %>
+      sysid: <% item() %>
     next:
       - when: <% succeeded() %>
         publish:
