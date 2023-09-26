@@ -60,4 +60,11 @@ class SSHWithPasswordAction(Action):
             "state": "6",
         }
 
-        return payload
+        sysid = incident.get("sys_id")
+
+        final_op = {
+            "payload": payload,
+            "sysid": sysid
+        }
+
+        return final_op
