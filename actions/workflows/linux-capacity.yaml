@@ -25,6 +25,19 @@ tasks:
     next:
       - when: <% succeeded() %>
         publish:
-          - answer: <% result().result %>
+          - payload: <% result().result.payload %>
+            sys_id: <% result().result.sys_id %>
+
+        do: update_incident
+
+  update_incident:
+    action: servicenow.update
+    input:
+      table: incident
+      payload: <% ctx().payload %>
+      sysid: <% ctx().sys_id %>
+    - when: <% succeeded() %>
+      publish:
+        - answer: <% result().result %>
 output:
   - result: <% ctx().answer %>
