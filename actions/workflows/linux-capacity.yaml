@@ -3,18 +3,11 @@ version: 1.0
 description: Linux capacity related commands
 
 tasks:
-  greet:
-    action: test_st2.greet
-    next:
-      - when: <% succeeded() %>
-        publish:
-          - output: <% result().stdout %>
-        do: clean_output
-
-  clean_output:
-    action: test_st2.clean_output
+  get_incidents:
+    action: servicenow.get_non_structured
     input:
-      args: <% ctx().output %>
+      table: incident
+      query: short_descriptionLIKEsystem load average
     next:
       - when: <% succeeded() %>
         publish:
