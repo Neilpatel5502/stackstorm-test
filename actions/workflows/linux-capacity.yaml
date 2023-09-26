@@ -32,7 +32,7 @@ tasks:
   update_incident:
     action: servicenow.update
     with:
-      items: <% ctx(get_incidents).result %>
+      items: <% task(get_incidents).result %>
     input:
       table: incident
       payload: <% ctx().payload %>
