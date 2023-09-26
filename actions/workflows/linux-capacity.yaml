@@ -26,7 +26,7 @@ tasks:
       - when: <% succeeded() %>
         publish:
           - payload: <% result().result.payload %>
-            sys_id: <% result().result.sys_id %>
+          - sys_id: <% result().result.sys_id %>
 
         do: update_incident
 
